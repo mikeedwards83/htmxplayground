@@ -1,0 +1,58 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Code from "../components/Code.astro";
+import Title from "../components/H.astro";
+import {code1} from "./code.ts"
+
+---
+
+<Layout title="Home">
+  <div
+    class="overflow-hidden bg-slate-900 dark:-mb-32 dark:mt-[-4.75rem] dark:pb-32 dark:pt-[4.75rem] "
+    slot="banner"
+  >
+    <div class="py-16 sm:px-2 lg:relative lg:px-0 lg:py-20">
+      <div
+        class="mx-auto grid max-w-2xl grid-cols-1 items-center gap-x-8 gap-y-16 px-4 lg:max-w-8xl lg:grid-cols-2 lg:px-8 xl:gap-x-16 xl:px-12"
+      >
+        <div class="relative z-10 md:text-center lg:text-left">
+          <img
+            alt=""
+            fetchpriority="high"
+            width="530"
+            height="530"
+            decoding="async"
+            data-nimg="1"
+            class="absolute bottom-full right-full -mb-56 -mr-72 opacity-50"
+            style="color:transparent"
+            src="/blur1.png"
+          /><div class="relative">
+			<Title>
+				The playground of lightweight web applications.
+			</Title>
+           
+            <p class="mt-3 text-2xl tracking-tight text-slate-400">
+              This site is designed to demonstrate the power of HTMX whe
+              combined with other lightweight dev tools. Remove the need for
+              heavy frontend frameworks and start design slick web apps driven
+              by HTML.
+            </p><div class="mt-8 flex gap-4 md:justify-center lg:justify-start">
+              <a
+                class="rounded-full bg-sky-300 py-2 px-4 text-sm font-semibold text-slate-900 hover:bg-sky-200 focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-300/50 active:bg-sky-500"
+                href="/">Get started</a
+              ><a
+                class="rounded-full bg-slate-800 py-2 px-4 text-sm font-medium text-white hover:bg-slate-700 focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/50 active:text-slate-400"
+                href="/">View on GitHub</a
+              >
+            </div>
+          </div>
+        </div>
+		<Code code={code1} />
+      </div>
+    </div>
+  </div>
+
+  <div>
+	<Code code={code1} />
+  </div>
+</Layout>

@@ -1,0 +1,36 @@
+---
+interface Props {
+  type: "1" | "2" | "3" | "4";
+  subtitle?: string;
+  title: string;
+}
+
+const { type, subtitle, title } = Astro.props;
+const id = title?.replace(/[^a-zA-Z]/, "-");
+---
+
+{
+  type == "1" && (
+    <header id={id} class="mb-9 space-y-1">
+    
+      {subtitle && (
+        <p class="font-display text-sm font-medium text-sky-500">{subtitle}</p>
+      )}
+      <h1 class="font-display text-3xl tracking-tight text-slate-900 dark:text-white">
+        {title}
+      </h1>
+    </header>
+  )
+}
+{
+  type == "2" && (
+    <h2 id={id}>
+      <i
+        class="fa-solid fa-link mr-3 cursor-pointer hover:text-sky-500"
+        onclick={"window.copyLink('"+id+"');"} />
+
+      {title}
+    </h2>
+  )
+}
+{type == "3" && <h3 id={id}>{title}</h3>}

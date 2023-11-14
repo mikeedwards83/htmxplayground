@@ -1,0 +1,122 @@
+---
+import ExampleLayout from "../../layouts/ExampleLayout.astro";
+import H from "../../components/H.astro";
+import Code from "../../components/Code.astro";
+import {
+  eventListener,
+  headers,
+  htmxHeader,
+  modal,
+  notification,
+} from "./errorHandling-code.ts";
+---
+
+<ExampleLayout title="Error Handling" subtitle="Failing Gracefully">
+  <p>
+    This page contains examples of possible was to handle errors in HTMX. With
+    HTMX you will be partially loading parts of the page, this means that you
+    don't want to be return a full HTML 404 or 500 page. Instead we need to use
+    different techniques.
+  </p>
+
+  <H type="2" title="Before You Start" />
+  <p>
+    Before we can start returning error response from the server, we have to
+    tell HTMX to not ignore them. By default HTMX will ignore any non-success
+    response codes. Doing this is straight forward. Create a JavaScript file and
+    add the following code:
+  </p>
+  <Code code={eventListener} lang="js" />
+  <p>Modify this to handle all the status codes you want to handle.</p>
+
+  <H type="2" title="Modal Popup" />
+  <p>
+    In this example, when an error occurs the server returns a popup that
+    informs the user that something has gone wrong. This solution is great
+    because it means that we don't have to worry where on the page the error
+    message was raised.
+  </p>
+  <p>Click the button below to see and example of this in action:</p>
+  <div class="text-center">
+    <button
+      hx-get="/examples/errorHandling/error-modal"
+      type="button"
+      class="group rounded-full bg-white/90 px-3 py-2 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur transition dark:bg-zinc-800/90 dark:ring-white/10 dark:hover:ring-white/20"
+    >
+      Error 500 Modal
+    </button>
+  </div>
+  <p>
+    In this example we use the ability to re-target a different HTML element on
+    the response. This means that when an error occurs the returned HTML is not
+    injected into the original location.
+  </p>
+  <p>
+    This is achieved by adding the following div before the closing body tag.
+    This will contain the modals returned by the server:
+  </p>
+  <Code code={notification} lang="js" />
+  <p>
+    Then when an error occurs we tell HTMX to inject the modal in this location
+    with the following response headers:
+  </p>
+  <Code code={headers} lang="js" />
+  <p>
+    Finally we define the modal. The hide/show functionality is handled by
+    AplineJs.
+  </p>
+  <Code code={modal} lang="js" />
+  <H type="2" title="Swapping The Response" />
+  <p>
+    The simpler solution from a code point of view is returning a response that
+    is injected in the same location as the original content. For example:
+  </p>
+  <div
+    class="h-18 border rounded-md flex flex-row justify-center items-center flex-row mb-5"
+    id="inline1"
+  >
+    <h3
+      class="text-1xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-2xl mr-3 sm:leading-4"
+    >
+      Small Box
+    </h3>
+    <button
+      hx-get="/examples/errorHandling/error-inline"
+      hx-target="#inline1"
+      type="button"
+      class="group rounded-full bg-white/90 px-3 py-2 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur transition dark:bg-zinc-800/90 dark:ring-white/10 dark:hover:ring-white/20"
+    >
+      Error 404 Inline
+    </button>
+  </div>
+  <div
+    id="inline2"
+    class="h-60 border rounded-md flex justify-center items-center flex-col"
+  >
+    <h3
+      class="text-1xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-2xl pb-3"
+    >
+      Large Box
+    </h3>
+    <button
+      hx-get="/examples/errorHandling/error-inline"
+      hx-target="#inline2"
+      type="button"
+      class="group rounded-full bg-white/90 px-3 py-2 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur transition dark:bg-zinc-800/90 dark:ring-white/10 dark:hover:ring-white/20"
+    >
+      Error 404 Inline
+    </button>
+  </div>
+  <p>
+    Notice here that it is important to be aware of the size of the box that
+    your error message will be injected into. You will need to think carefully about designing a response that doesn't break the rendering of your page when returned.
+  </p>
+  <H type="2" title="Extra Tip" />
+  <p>
+    Finally when capturing errors on your server you will need to know if this was a HTMX request or a normal request when deciding the type of response to return.
+    You can do this be checking for this header:
+  </p>
+  <Code code={htmxHeader} lang="js" />
+
+  
+</ExampleLayout>
