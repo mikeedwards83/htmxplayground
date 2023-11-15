@@ -1,12 +1,12 @@
 ---
-import { Code } from "astro:components";
+import { Code as CodeComponent } from "astro:components";
 interface Props {
   code: string;
-  lang:string
+  lang:string;
 }
 const { code,lang } = Astro.props;
 ---
 
 <div class="bg-slate-800 p-4 pt-0 pb-6 border border-slate-700 rounded-3xl not-prose">
-  <Code lang={lang} theme="vitesse-dark" code={code} />
+  <CodeComponent lang={lang as any } theme="vitesse-dark" code={code} />
 </div>
