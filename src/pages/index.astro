@@ -1,12 +1,11 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Title from "../components/Title.astro";
-
 ---
 
 <Layout title="Home">
   <div
-    class="overflow-hidden bg-slate-900 dark:-mb-32 dark:mt-[-4.75rem] dark:pb-32 dark:pt-[4.75rem] "
+    class="overflow-hidden bg-slate-900 dark:-mb-32 dark:mt-[-4.75rem] dark:pb-32 dark:pt-[4.75rem]"
     slot="banner"
   >
     <div class="py-16 sm:px-2 lg:relative lg:px-0 lg:py-20">
@@ -25,10 +24,8 @@ import Title from "../components/Title.astro";
             style="color:transparent"
             src="/blur1.png"
           /><div class="relative">
-			<Title title="The playground of lightweight web applications.">
-				
-			</Title>
-           
+            <Title title="The playground of lightweight web applications." />
+
             <p class="mt-3 text-2xl tracking-tight text-slate-400">
               This site is designed to demonstrate the power of HTMX whe
               combined with other lightweight dev tools. Remove the need for
@@ -45,9 +42,45 @@ import Title from "../components/Title.astro";
             </div>
           </div>
         </div>
+        <div>
+          <img
+            alt="Sketch of the internals of a computer"
+            src="/home_hero.jpg"
+          />
+        </div>
       </div>
     </div>
   </div>
-
-  
+  <div>
+    <div
+      class="prose prose-slate max-w-none dark:prose-invert dark:text-slate-400 prose-headings:scroll-mt-28 prose-headings:font-display prose-headings:font-normal lg:prose-headings:scroll-mt-[8.5rem] prose-lead:text-slate-500 dark:prose-lead:text-slate-400 prose-a:font-semibold dark:prose-a:text-sky-400 prose-a:no-underline prose-a:shadow-[inset_0_-2px_0_0_var(--tw-prose-background,#fff),inset_0_calc(-1*(var(--tw-prose-underline-size,4px)+2px))_0_0_var(--tw-prose-underline,theme(colors.sky.300))] hover:prose-a:[--tw-prose-underline-size:6px] dark:[--tw-prose-background:theme(colors.slate.900)] dark:prose-a:shadow-[inset_0_calc(-1*var(--tw-prose-underline-size,2px))_0_0_var(--tw-prose-underline,theme(colors.sky.800))] dark:hover:prose-a:[--tw-prose-underline-size:6px] prose-pre:rounded-xl prose-pre:bg-slate-900 prose-pre:shadow-lg dark:prose-pre:bg-slate-800/60 dark:prose-pre:shadow-none dark:prose-pre:ring-1 dark:prose-pre:ring-slate-300/10 dark:prose-hr:border-slate-800"
+    >
+      <p>
+        Will HTMX save to world? Probably not but it might just make life a
+        little easier on the web. For years we have had the growth of the mega
+        frontend frameworks. I have worked on projects that have involved huge
+        amounts of engineering to create a simple marketing website that can run
+        on Vercel.
+      </p>
+      <p>
+        HTMX is an approach that removes a lot of this engineering, allowing you
+        to achieve a lot with not a lot. Gone are the 2-4mb client JS downloads
+        and instead a small 200kb total initial download size.
+      </p>
+      <p>
+        Will HTMX replace React or Angular (insert large framework here), no
+        probably not, but it will make it harder to justify these tools when
+        developing simpler less frontend heavy sites. It isn't a crime to have
+        sessions on servers and it isn't a crime to send HTML to a browser
+        (sorry JavaScript guys).
+      </p>
+      <p>
+        Navigate the examples on the left hand side to see the power of HTMX.
+        Note, these are experiments and some may work better than others.
+      </p>
+      <p class="font-bold text-xl">
+        Got a suggestion or an experiment you want to try? For the repo, have a go and share.
+      </p>
+    </div>
+  </div>
 </Layout>
