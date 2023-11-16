@@ -1,5 +1,5 @@
 ---
-import leftMenu from "./LeftMenu";
+import Menu from "./Menu.astro";
 ---
 
 <div class="hidden lg:relative lg:block lg:flex-none">
@@ -14,33 +14,7 @@ import leftMenu from "./LeftMenu";
     class="sticky top-[4.75rem] -ml-0.5 h-[calc(100vh-4.75rem)] w-64 overflow-y-auto overflow-x-hidden py-16 pl-0.5 pr-8 xl:w-72 xl:pr-16"
   >
     <nav class="text-base lg:text-sm">
-      <ul role="list" class="space-y-9" hx-boost="true">
-        {
-          leftMenu.sections.map((section) => (
-            <li>
-              <h2 class="font-display font-medium text-slate-900 dark:text-white">
-                {section.title}
-              </h2>
-              <ul
-                role="list"
-                class="mt-2 space-y-2 border-l-2 border-slate-100 dark:border-slate-800 lg:mt-4 lg:space-y-4 lg:border-slate-200"
-              >
-                {section.links.map((link) => (
-                  <li class="relative">
-                    <a
-                      class="block w-full pl-3.5 before:pointer-events-none before:absolute before:-left-1 before:top-1/2 before:h-1.5 before:w-1.5 before:-translate-y-1/2 before:rounded-full font-semibold text-sky-500 before:bg-sky-500"
-                      href={link.link}
-                      hx-swap=".simple-transition transition:true"
-                    >
-                      {link.title}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </li>
-          ))
-        }
-      </ul>
+    <Menu />
     </nav>
   </div>
 </div>

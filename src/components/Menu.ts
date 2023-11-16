@@ -25,6 +25,14 @@ const leftMenu: LeftMenu = {
           title: "Loading Banners",
           link: "/examples/loadingBanners",
         },
+        {
+          title: "Address Lookup",
+          link: "/examples/addressLookup",
+        },
+        {
+          title: "Shopping Cart",
+          link: "/examples/shoppingCart",
+        },
       ],
       
     },

@@ -1,8 +1,12 @@
-const codeBlocks = document.querySelectorAll(".astro-code");
+function cleanCodeBlocks() {
+  const codeBlocks = document.querySelectorAll(".astro-code");
 
-codeBlocks.forEach((codeBlock) =>
-  codeBlock.style.setProperty("background-color", "unset"),
-);
+  codeBlocks.forEach((codeBlock) =>
+    codeBlock.style.setProperty("background-color", "unset"),
+  );
+}
+
+cleanCodeBlocks();
 
 document.body.addEventListener("htmx:beforeOnLoad", function (evt) {
   if (
@@ -15,11 +19,13 @@ document.body.addEventListener("htmx:beforeOnLoad", function (evt) {
   }
 });
 
+document.body.addEventListener("htmx:afterSwap", function (evt) {
+  cleanCodeBlocks();
+});
 
-window.copyLink = function(anchor) {
-
-    const url= `${ window.location.href.split("#")[0]}#${anchor}`
+window.copyLink = function (anchor) {
+  const url = `${window.location.href.split("#")[0]}#${anchor}`;
   // Get the text field
   // Copy the text inside the text field
   navigator.clipboard.writeText(url);
-}
+};

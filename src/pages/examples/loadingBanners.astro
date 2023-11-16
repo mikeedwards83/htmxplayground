@@ -1,7 +1,31 @@
 ---
 import ExampleLayout from "../../layouts/ExampleLayout.astro";
-
 ---
 
 <ExampleLayout title="Loading Banners">
+  <div
+    class="p-4 border rounded-md flex flex-row justify-center items-center flex-col mb-5 relative"
+    id="inline1"
+  >
+  
+    <h3
+      class="text-1xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-2xl mb-3 "
+    >
+      Small Box
+    </h3>
+    <button
+      hx-get="/examples/loadingBanners/slow"
+      hx-target="#inline1"
+      hx-trigger="click"
+      hx-indicator="#inline1 .loading"
+      type="button"
+      class="group rounded-full bg-white/90 px-3 py-2 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur transition dark:bg-zinc-800/90 dark:ring-white/10 dark:hover:ring-white/20"
+    >
+      Error 404 Inline
+    </button>
+    <div class="htmx-indicator animate-pulse loading flex justify-center items-center absolute text-zinc-800 top-0 left-0 right-0 bottom-0 bg-white bg-opacity-80">
+        Loading.....
+    </div>
+    
+  </div>
 </ExampleLayout>
