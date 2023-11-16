@@ -1,0 +1,37 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Title from "../components/Title.astro";
+---
+
+<Layout title="About">
+  <Title>About</Title>
+  <div
+    class="prose prose-slate max-w-none dark:prose-invert dark:text-slate-400 prose-headings:scroll-mt-28 prose-headings:font-display prose-headings:font-normal lg:prose-headings:scroll-mt-[8.5rem] prose-lead:text-slate-500 dark:prose-lead:text-slate-400 prose-a:font-semibold dark:prose-a:text-sky-400 prose-a:no-underline prose-a:shadow-[inset_0_-2px_0_0_var(--tw-prose-background,#fff),inset_0_calc(-1*(var(--tw-prose-underline-size,4px)+2px))_0_0_var(--tw-prose-underline,theme(colors.sky.300))] hover:prose-a:[--tw-prose-underline-size:6px] dark:[--tw-prose-background:theme(colors.slate.900)] dark:prose-a:shadow-[inset_0_calc(-1*var(--tw-prose-underline-size,2px))_0_0_var(--tw-prose-underline,theme(colors.sky.800))] dark:hover:prose-a:[--tw-prose-underline-size:6px] prose-pre:rounded-xl prose-pre:bg-slate-900 prose-pre:shadow-lg dark:prose-pre:bg-slate-800/60 dark:prose-pre:shadow-none dark:prose-pre:ring-1 dark:prose-pre:ring-slate-300/10 dark:prose-hr:border-slate-800"
+  >
+    <p>
+      Having working on building websites for too many years, I had become tired
+      of the complexity that had grown on the frontend. Many of the technologies
+      were very clever and cool, but when you see a developer spend 4 days
+      crafting the ESLINT configuration, you think "What are we doing?".
+    </p>
+    <p>
+      HTMX was a breath of fresh air, a simple more streamline approach.
+      Suddenly websites can be made responsive and interactive without the bloat
+      of large client side frameworks. No longer are we duplicating state or
+      mapping from a database entity to a JSON DTO, serailising, then
+      deserialising, then pushing to a virtal DOM which is then serialised and
+      sent to the browser to be rehydrated, turned back into a virtual DOM, then
+      rendered and finally displayed has HTML to the user.
+    </p>
+    <p>
+      For me HTMX has meant that I can be more productive, I can deliver more
+      value, more quickly and in a way that involves less cognitive load.
+    </p>
+    <p>More importantly, it has given me more time for coffee.</p>
+    <p class="text-right">-- Mike</p>
+  </div>
+
+  <div class="text-center">
+    <img src="/horse.jpg" alt="Sketch of a horses skull" class="max-w-full" />
+  </div>
+</Layout>
