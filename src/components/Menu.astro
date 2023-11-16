@@ -7,7 +7,7 @@ import leftMenu from "./Menu";
   {
     leftMenu.sections.map((section) => (
       <li>
-        <h2 class="font-display font-medium text-slate-900 dark:text-white">
+        <h2 class="font-display text-lg text-slate-900 dark:text-white">
           {section.title}
         </h2>
         <ul
@@ -17,7 +17,7 @@ import leftMenu from "./Menu";
           {section.links.map((link) => (
             <li class="relative">
               <a
-                class="block w-full pl-3.5 before:pointer-events-none before:absolute before:-left-1 before:top-1/2 before:h-1.5 before:w-1.5 before:-translate-y-1/2 before:rounded-full font-semibold text-sky-500 before:bg-sky-500"
+                class="block w-full pl-3.5 before:pointer-events-none before:absolute before:-left-1 before:top-1/2 before:h-1.5 before:w-1.5 before:-translate-y-1/2 before:rounded-full font-semibold  before:bg-sky-500"
                 href={link.link}
                 hx-swap=".simple-transition transition:true"
               >

@@ -1,31 +1,74 @@
 ---
 import ExampleLayout from "../../layouts/ExampleLayout.astro";
+import Code from "../../components/Code.astro";
+import { css, component } from "./loadingBanner";
+import H from "../../components/H.astro";
 ---
 
 <ExampleLayout title="Loading Banners">
+  <p>
+    HTMX makes it very easy to indicate when content is being loaded. In these
+    examples we use a simple loading banner. To tell the user something is
+    happening.
+  </p>
+  <p>
+    To make this work we first have to add a couple of CSS classes. The <strong
+      >htmx-indicator</strong
+    > class indicates that we intend to use this component as our loader. It
+    will also hide the banner when nothing is being laoded.
+  </p>
+  <p>
+    The <strong>htmx-request</strong> class gets added to the target of the <strong
+      >hx-indicator</strong
+    > attribute and is added when we load data.
+  </p>
+  <div class="pb-4">
+    <Code code={css} lang="css" />
+  </div>
+  <p>
+    Below you can give this a try:
+  </p>
   <div
-    class="p-4 border rounded-md flex flex-row justify-center items-center flex-col mb-5 relative"
+    class="p-4 border rounded-md flex flex-row justify-center items-center mb-5 relative"
     id="inline1"
   >
-  
-    <h3
-      class="text-1xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-2xl mb-3 "
-    >
-      Small Box
-    </h3>
-    <button
-      hx-get="/examples/loadingBanners/slow"
-      hx-target="#inline1"
-      hx-trigger="click"
-      hx-indicator="#inline1 .loading"
-      type="button"
-      class="group rounded-full bg-white/90 px-3 py-2 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur transition dark:bg-zinc-800/90 dark:ring-white/10 dark:hover:ring-white/20"
-    >
-      Error 404 Inline
-    </button>
-    <div class="htmx-indicator animate-pulse loading flex justify-center items-center absolute text-zinc-800 top-0 left-0 right-0 bottom-0 bg-white bg-opacity-80">
-        Loading.....
+    <div class="mr-4">
+      <img src="/box.jpg" class="h-32" alt="Sketch of a box." />
     </div>
-    
+    <div class="pb-4">
+      <h3
+        class="text-1xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-2xl mb-3"
+      >
+        Small Box
+      </h3>
+      <button
+        hx-get="/examples/loadingBanners/slow"
+        hx-target="#inline1"
+        hx-trigger="click"
+        hx-indicator="#inline1 .loading"
+        type="button"
+        class="group rounded-full bg-white/90 px-3 py-2 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur transition dark:bg-zinc-800/90 dark:ring-white/10 dark:hover:ring-white/20"
+      >
+        Load Something
+      </button>
+    </div>
+    <div
+      class="htmx-indicator animate-pulse loading flex justify-center items-center absolute text-zinc-800 top-0 left-0 right-0 bottom-0 bg-white"
+    >
+      <div class="mr-4">
+        <img src="/clock.jpg" class="h-32" alt="Sketch of a box." />
+      </div>
+      <div class="pb-4">
+        <h3 class="text-zinc-800">Loading...</h3>
+      </div>
+    </div>
   </div>
+  <p>
+    The code for this is very straight forward. We have stripped out some of the noise so you can see 
+    just the important parts.
+  </p>
+  <div class="pb-4">
+    <Code code={component} lang="html" />
+  </div>
+
 </ExampleLayout>
